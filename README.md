@@ -1,7 +1,5 @@
-# Kernel Principal Component Analysis(KPCA)
+Kernel Principal Component Analysis(KPCA)  
 ====
-KPCA for dimensionality reduction, feature extraction, fault detection, and fault diagnosis  
-  
 demo1: dimensionality reduction, feature extraction  
 ==
 ![](img/demo1_1.png)![](img/demo1_2.png)  
