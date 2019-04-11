@@ -8,26 +8,17 @@ addpath(genpath(pwd))
 
 % 4 circles
 load circledata
-
-% 
 X = circledata;
+figure
 for i = 1:4
     scatter(X(1+250*(i-1):250*i,1),X(1+250*(i-1):250*i,2))
     hold on
 end
 
-% Parameters setting
-options.sigma = 5;   % kernel width
-options.dims  = 2;   % output dimension
-options.type  = 0;   % 0:dimensionality reduction or feature extraction
-                     % 1:fault detection
-options.beta  = 0.9; % corresponding probabilities (for ault detection)
-options.cpc  = 0.85; % Principal contribution rate (for ault detection)
-
-
 % Train KPCA model
-model = kpca_train(X,options);
+model = kpca_train(X,'type',0,'sigma',5,'dims',2);
 
+% Visualize the result of dimensionality reduction
 figure
 for i = 1:4
     scatter(model.mappedX(1+250*(i-1):250*i,1), ... 
