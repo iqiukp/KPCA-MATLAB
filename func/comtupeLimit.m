@@ -11,7 +11,8 @@ function [SPE_limit,T2_limit] = comtupeLimit(model)
 %   SPE_limit   the control limit of SPE statistic
 %   T2_limit    the control limit of T2 statistic
 %
-% Created on 9th November, 2018, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 
 % Compute Hotelling's T2 statistic
