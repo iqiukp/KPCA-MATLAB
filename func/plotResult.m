@@ -8,7 +8,8 @@ function plotResult(R,D)
 %   R         Threshold
 %   D         statistics
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 %
 figure
