@@ -1,9 +1,16 @@
 Kernel Principal Component Analysis(KPCA)  
-==  
-Three demos are provided:  
+===
+---------------------------------------------------------
+Updates in 18 Apr 2019	
+1. Fixed some errors 
+2. Added Dynamic KPCA(DKPCA)
+---------------------------------------------------------  
+
+four demos are provided:  
 demo1: dimensionality reduction or feature extraction  
 demo2: fault detection for a numerical example  
-demo3: fault detection and fault diagnosis for TE process  
+demo3: fault detection and fault diagnosis for TE process using KPCA  
+demo4: fault detection and fault diagnosis for TE process using Dynamic KPCA(DKPCA)
 
 demo1: dimensionality reduction, feature extraction  
 =
