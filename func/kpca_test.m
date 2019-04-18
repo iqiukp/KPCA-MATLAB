@@ -11,14 +11,21 @@ function model = kpca_test(model,Y)
 % OUTPUT
 %   model       updated KPCA model (adding fault detection results)
 %
-% Created on 11th April 2019, by Kepeng Qiu.
-
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 % Compute Hotelling's T2 statistic
 % T2 = diag(model.mappedX/diag(model.lambda(1:model.dims))*model.mappedX');
 
 % the number of test samples
 L = size(Y,1);
+
+% DKPCA
+if model.type == 2
+    %  Construct the augmented matrix
+    Y = constructAM(Y,model.lag);
+    L = size(Y,1);
+end
 
 % Compute the kernel matrix
 Kt = computeKM(Y,model.X,model.sigma ); 
