@@ -13,20 +13,24 @@ function model = kpca_train(X,varargin)
 %   model        KPCA model
 %
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 % Default Parameters setting
 options.sigma = 10;   % kernel width
 options.dims  = 2;    % output dimension (dimensionality reduction)
                       % 2D data is easy to visualize
-options.type  = 0;    % 0:dimensionality reduction or feature extraction
-                      % 1:fault detection
+options.type  = 0;    % 0: dimensionality reduction or feature extraction
+                      % 1: fault detection using KPCA
+                      % 2: fault detection using dynamic KPCA(DKPCA)
 options.beta  = 0.9;  % corresponding probabilities (for fault detection)
-                      % (control limit)
-options.pcr   = 0.85; % principal contribution rate (for fault detection)
+                      % 
+options.pcr   = 0.65; % principal contribution rate (for fault detection)
 options.fd    = 0;    % 0: No fault diagnosis (fd)
                       % 1: fault diagnosis (fd)
-                      
+options.lag   = 4;    % time lag (for DKPCA)
+%
+
 if rem(nargin-1,2)
     error('Parameters to kpca_train should be pairs')
 end
@@ -48,12 +52,28 @@ for n =1:numParameters
             %
         case 'fd'
             options.fd = value;
+            %
+        case 'lag'
+            options.lag = value;
+            %
+        case 'pcr'
+            options.pcr = value;
+            %
+        case 'beta'
+            options.beta = value;
     end
 end
 
-
 % number of training samples
 L = size(X,1);
+
+% DPCA
+if options.type == 2
+    %  Construct the augmented matrix
+    X = constructAM(X,options.lag);
+    L = size(X,1);
+    model.lag = options.lag; % time lag
+end
 
 % Compute the kernel matrix
 K = computeKM(X,X,options.sigma);
@@ -64,6 +84,7 @@ K_c = K-unit*K-K*unit+unit*K*unit;
 
 % Solve the eigenvalue problem
 [V,D] = eigs(K_c/L);
+% [V,D] = eig(K_c/L);
 lambda = diag(D);
 
 % Normalize the eigenvalue
@@ -76,12 +97,11 @@ V_s = V ./ sqrt(L*lambda)';
 % end
 % ------------------------------
 
-
 % Compute the numbers of principal component
-if options.type == 1
+if options.type  == 1 || options.type  == 2  % fault detection
     dims = find(cumsum(lambda/sum(lambda)) >= ...
         options.pcr,1, 'first');
-else
+else % dimensionality reduction or feature extraction
     dims = options.dims;
 end
 
@@ -100,10 +120,11 @@ model.K = K;
 model.unit = unit;
 model.sigma = options.sigma;
 model.diagnosis = options.fd;
+model.type = options.type;
 
 % Compute the threshold for fault detection
-if options.type  == 1
-    model.beta = options.beta;% corresponding probabilities
+if options.type  == 1 || options.type  == 2
+    model.beta = options.beta; % corresponding probabilities
     [SPE_limit,T2_limit] = comtupeLimit(model);
     model.SPE_limit = SPE_limit;
     model.T2_limit = T2_limit;
