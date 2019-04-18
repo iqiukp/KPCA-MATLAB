@@ -22,7 +22,8 @@ function [CPs_T2, CPs_SPE] = CPsKPCA(X,Y,model,varargin)
 %   CPs_T2       Contribution Plots of T2
 %   CPs_SPE      Contribution Plots of SPE 
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 % Default Parameters setting
 start_time = size(Y,1);  % Starting time for Contribution Plots
