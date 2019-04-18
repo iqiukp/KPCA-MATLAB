@@ -7,7 +7,8 @@ function plotCPs(CPs)
 % INPUT
 %   CPs         Contribution Plots
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 %
 figure
