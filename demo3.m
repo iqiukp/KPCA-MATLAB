@@ -1,11 +1,11 @@
-% Demo3: Fault detection and fault diagnosis for TE process
+% Demo4: Fault detection and fault diagnosis for TE process using KPCA
 % X: training samples
 % Y: test samples
 
-% Improve the performance of fault detection by adjusting parameters
-% 1. options.sigma = 800;   % kernel width
-% 2. options.beta          % corresponding probabilities 
-% 3. options.pcr  ;        % principal contribution rate
+%%%%%%%%%%%%%%%%%%%%%%%%%%     KPCA       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Improve the performance by adjusting the following parameters:
+% 1. sigma  % kernel width
+% 2. pcr    % principal contribution rate
 % ---------------------------------------------------------------------%
 
 clc
