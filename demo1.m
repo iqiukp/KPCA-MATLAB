@@ -1,5 +1,12 @@
-% Demo1: dimensionality reduction or feature extraction 
+% Demo1: Dimensionality reduction or feature extraction using KPCA
+% X: training samples
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%     KPCA       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Improve the performance by adjusting the following parameters:
+% 1. sigma  % kernel width
+% 2. dims   % Dimensionality
 % ---------------------------------------------------------------------%
+
 clc
 clear all
 close all
