@@ -1,14 +1,13 @@
-% Demo2: Fault detection
+% Demo4: Fault detection for numerical example using KPCA
 % X: training samples
 % Y: test samples
 
-% Improve the performance of fault detection by adjusting parameters
-% 1. options.sigma = 16;   % kernel width
-% 2. options.beta          % corresponding probabilities 
-% 3. options.pcr  ;        % principal contribution rate
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%     KPCA       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Improve the performance by adjusting the following parameters:
+% 1. sigma  % kernel width
+% 2. pcr    % principal contribution rate
 % ---------------------------------------------------------------------%
+
 clc
 clear all
 close all
