@@ -16,7 +16,8 @@ function [X_s, Y_s] = normalize(X,Y)
 %   X_s          Normalizated X
 %   Y_s          Normalizated Y
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 % normalize X
 X_mu = mean(X);
