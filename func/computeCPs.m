@@ -25,7 +25,8 @@ function [CPs_T2,CPs_SPE] = computeCPs(X,Y, model,theta)
 %   CPs_T2       Contribution Plots of T2
 %   CPs_SPE      Contribution Plots of SPE
 %
-% Created on 11th April 2019, by Kepeng Qiu.
+% Created on 18th April 2019, by Kepeng Qiu.
+%-------------------------------------------------------------%
 
 [N,d] = size(X);
 [M,d] = size(Y);
