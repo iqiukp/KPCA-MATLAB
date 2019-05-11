@@ -1,7 +1,7 @@
 Kernel Principal Component Analysis(KPCA)  
 ===
 ---------------------------------------------------------
-Updates in 18 Apr 2019	
+Updates on 18 Apr 2019	
 1. Fixed some errors 
 2. Added Dynamic KPCA(DKPCA)
 ---------------------------------------------------------  
