@@ -15,6 +15,7 @@ Notice
 4. Class is defined using 'Classdef...End', so this code can only be applied to MATLAB after the R2008a release.
 5. The original version (v1.0) is also provided.
 
+---------------------------------------------------------------
 ### Demo for dimensionality reduction (helix data)  
 
 ```
