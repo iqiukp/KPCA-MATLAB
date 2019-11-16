@@ -3,7 +3,7 @@
 ---------------------------------------------------------------
 Updated on 16 Nov 2019	
 1. Used OOP to rewrite some modules.
-2. Added support for multiple kernel function.
+2. Added support for multiple kernel functions.
 3. Fixed some bugs.
 4. Accelerated the running speed of the fault diagnosis module 
 ---------------------------------------------------------------  
