@@ -13,7 +13,6 @@ Notice
 2. Fault diagnosis module only supports gaussian kernel function at this version.
 3. The fault diagnosis module calls the precompiled file '.mexw64' to accelerate the running speed.
 4. Class is defined using 'Classdef...End', so this code can only be applied to MATLAB after the R2008a release.
-5. The original version (v1.0) is also provided.
 
 ---------------------------------------------------------------
 ### Demo for dimensionality reduction (helix data)  
