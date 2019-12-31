@@ -46,7 +46,23 @@ classdef KpcaTrainFaultDetection < KpcaTrainBase
             unit = ones(M, M)/M;
             K_c = K-unit*K-K*unit+unit*K*unit;
             [V, D] = eigs(K_c/M, M);
+            
+             
+            % ill-conditioned matrix
+            if ~(isreal(V)) || ~(isreal(D))
+                V = real(V);
+                D = real(D);
+            end
+            
             lambda = diag(D);
+            
+            % 
+            [~, maxLamdaIndex] = max(lambda);
+            if maxLamdaIndex ~= 1
+                lambda = wrev(diag(D));
+                V = fliplr(V);
+            end
+            
             dimensionality = find(cumsum(lambda/sum(lambda)) >= ...
                 obj.application.cumulativepercentage, 1, 'first');
             
