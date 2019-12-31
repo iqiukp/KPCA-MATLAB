@@ -32,7 +32,10 @@ Created on 16th November 2019 by Kepeng Qiu.
     % axis settings
     tgca = 12;  % font size
 
-    set(gca,'yscale','log')
+    if isempty(find(statistic<0, 1))
+        set(gca,'yscale','log')
+    end
+    
     set(gca,'FontSize',tgca)
     
     % legend settings
