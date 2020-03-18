@@ -2,7 +2,6 @@ classdef KernelBase < handle
 %{ 
     CLASS DESCRIPTION
 
-    Created on 16th November 2019 by Kepeng Qiu.
 -------------------------------------------------------------%
 %} 
    methods(Abstract)
@@ -10,9 +9,23 @@ classdef KernelBase < handle
    end
 
    methods(Static)
-       function kernel = setfunction(value)
+       function kernel = setFunction(value)
+        %{
+        DESCRIPTION
+              type   -  linear :  k(x,y) = x'*y
+                        poly   :  k(x,y) = (x'*y+c)^d
+                        gauss  :  k(x,y) = exp(-(norm(x-y)/s)^2)
+                        sigm   :  k(x,y) = tanh(g*x'*y+c)
+                        exp    :  k(x,y) = exp(-(norm(x-y))/s^2)
+                        lapl   :  k(x,y) = exp(-(norm(x-y))/s)
+           
+                degree -  d
+                offset -  c
+                width  -  s
+                gamma  -  g
+        %}
+           
           switch value
-              
               % linear kernel function
               case 'linear'
                   kernel = KernelLinear;

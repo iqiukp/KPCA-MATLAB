@@ -2,57 +2,33 @@ classdef KernelFunction < handle
 %{ 
     CLASS DESCRIPTION
     
-    Created on 16th November 2019 by Kepeng Qiu.
 -------------------------------------------------------------%
 %} 
     methods(Static)
-        function checkresult = checkinput(p, inputvalue)
-            functype = {'linear', 'gauss', 'poly', 'sigm', 'exp', 'lapl'};
-            defaultkernel = 'gauss';
-            p.addParameter('type', defaultkernel,...
-                @(x)any(validatestring(x, functype)));
+        function checkResult = checkInput(inputValue)
+            %
+            nParameter = size(inputValue, 2)/2;
             
-            defaultwidth = 2;
-            p.addParameter('width', defaultwidth);
+            if nParameter == 0
+                % Default Parameters setting
+                checkResult.type = 'gauss';
+                checkResult.parameter = struct('width', 2);
+            end
             
-            defaultdegree = 2;
-            p.addParameter('degree', defaultdegree);
-            
-            defaultoffset = 0;
-            p.addParameter('offset', defaultoffset);
-            
-            defaultgamma = 0.1;
-            p.addParameter('gamma', defaultgamma);
-            
-            p.parse(inputvalue{:});
-            checkresult = p.Results;
-        end
-        
-        function checkresult = checkinput_1(inputvalue)
-            % Default Parameters setting
-            checkresult.type = 'gauss';
-            checkresult.width = 2; 
-            checkresult.degree = 2;
-            checkresult.offset = 0;
-            checkresult.gamma = 0.1;
-            numparameters = size(inputvalue, 2)/2;
-            for n =1:numparameters
-                parameters = inputvalue{(n-1)*2+1};
-                value	= inputvalue{(n-1)*2+2};
-                switch parameters
-                    case 'type'
-                        checkresult.type = value;
-                    case 'width'
-                        checkresult.width = value;
-                    case 'degree'
-                        checkresult.degree = value;
-                    case 'offset'
-                        checkresult.offset = value;
-                    case 'gamma'
-                        checkresult.gamma = value;
+            for n = 1:nParameter
+                parameter = inputValue{(n-1)*2+1};
+                value = inputValue{(n-1)*2+2};
+                if strcmp(parameter, 'type')
+                    checkResult.(parameter) = value;
+                else
+                    checkResult.parameter.(parameter) = value;
                 end
             end
-            checkresult = orderfields(checkresult);
+            
+            tmpName = fieldnames(checkResult);
+            if ~ismember(tmpName, 'parameter')
+                checkResult.parameter = [];
+            end
         end
     end
 end
