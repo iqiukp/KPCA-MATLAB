@@ -69,7 +69,7 @@ classdef KpcaTestFaultDetection < KpcaTestBase
                          testresult.V_s = model.V_s;
                          testresult.dimensionality = model.dimensionality;
                          testresult.lambda = model.lambda;
-                         testresult.width = model.kernel.width;
+                         testresult.width = model.kernel.parameter.width;
                          testresult.traindata = model.traindatabackup;
                      else
                          error('Only Gaussian kernel function based fault diagnosis is supported.')
