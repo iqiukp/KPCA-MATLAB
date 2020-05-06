@@ -71,7 +71,7 @@ classdef Visualization < handle
             if d<2 || d>3
                 error('Only 2D data is supported for visualization.')
             end
-            size_ = 3;
+            size_ = 5;
             
             tmp = tabulate(label);
             

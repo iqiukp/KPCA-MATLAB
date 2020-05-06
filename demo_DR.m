@@ -9,7 +9,8 @@ addpath(genpath(pwd))
 
 % load data
 load('.\data\circle.mat')   
-X = data;
+X = data(:, 1:2);
+label = data(:, 3);
 % set kernel function
 kernel = Kernel('type', 'gauss', 'width', 0.5);
 % parameter setting
