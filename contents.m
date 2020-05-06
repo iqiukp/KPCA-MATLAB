@@ -3,7 +3,7 @@
     
     MAtlab Code for Dimensionality Reduction and Fault Detection using KPCA.
 
-    Version 1.0 16-NOV-2019
+    Version 2.1, 6-MAY-2020
 
     -----------------------------------------------------------------------
 
@@ -21,42 +21,29 @@
             kernel = Kernel('type', 'poly', 'degree', 2, 'offset', 0);
     
 
-    (2) KpcaModel
+    (2) KernelPCA
         
-        Create an object with properties 'application', 'kernel', 
-        and methods 'train' and 'test'.
 
-            kpca = KpcaModel('application', application, 'kernel', kernel);
+        Non-linear dimensionality reduction, fault detection, and fault 
+        diagnosis through the use of kernels.
+
+            kpca = KernelPCA(parameter);
     -----------------------------------------------------------------------
     
-    Main structures
-    
-    (1) application parameter structures
+        Structures Description of 'parameter'
 
-           (1.1) Dimensionality Reduction
-                    parameter.type = 'dimensionalityreduction';
-                    parameter.dimensionality =  2;    
+            application:       dimensionality reduction (dr) and fault detection (fd)
+            dim:               dimensionality
+            tol:               tolerance for eigenvalues
+            alpha:             hyperparameter of the ridge regression that learns the reconstruction
+            explained:         percent variability explained by principal components
+            kernel:            kernel function
+            significanceLevel: significance level (fault detection)
+            theta:             experience parameter of fault diagnosis 
+            display:           display the results
+ 
+        Details of the application of dimensionality reduction and fault 
+        detection please see the demo.
 
-           (1.2) Fault Detection
-                    parameter.type = 'faultdetection';
-                    parameter.cumulativepercentage =  0.75; 
-                    parameter.significancelevel =  0.95;
-                    parameter.faultdiagnosis =  'off';  
-                    parameter.diagnosisparameter = 0.5; 
-                    parameter.timelag = 0;  
-            
-           where 
-          'cumulativepercentage' : a parameter to decide the number of  
-                                   principal component. 
-          'significancelevel'    : a parameter as corresponding probabilities
-                                   to compute the control limit.
-          'diagnosisparameter'   : an experience parameter between 0 and 1
-                                   for fault diagnosis.
-          'timelag'              : a time lag parameter for DKPCA.
-    -----------------------------------------------------------------------
-
-        Details of the application of Dimensionality Reduction and Fault 
-        Detection please see the demos.
-    -----------------------------------------------------------------------
 %} 
 
