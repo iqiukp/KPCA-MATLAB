@@ -1,5 +1,5 @@
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/banana(re).png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/banana(re).png" width="720">
 </p>
 
 # Kernel Principal Component Analysis (KPCA)  
@@ -35,10 +35,10 @@ Email: iqiukp@outlook.com
 ## Demo for dimensionality reduction ('banana' data and 'circle' data)
 
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/banana.png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/banana.png" width="720">
 </p>
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle.png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle.png" width="720">
 </p>
 
 -------------------------------------------------------------------
@@ -46,7 +46,7 @@ Email: iqiukp@outlook.com
 ## Demo for data reconstruction ('circle' data)
 
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle(re).png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle(re).png" width="720">
 </p>
 
 -------------------------------------------------------------------
@@ -54,7 +54,7 @@ Email: iqiukp@outlook.com
 ## Demo for fault detection (TE process data)
 
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd.png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd.png" width="720">
 </p>
 
 -------------------------------------------------------------------
@@ -62,6 +62,6 @@ Email: iqiukp@outlook.com
 ## Demo for fault diagnosis (TE process data)
 
 <p align="middle">
-  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd_fd.png" width="420">
+  <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd_fd.png" width="720">
 </p>
 
