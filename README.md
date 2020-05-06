@@ -19,6 +19,7 @@ Email: iqiukp@outlook.com
 * Multiple kinds of kernel functions
 * Support for dimensionality reduction, fault detection, and fault diagnosis
 * Support for data reconstruction
+
 -------------------------------------------------------------------
 
 ## Notices
@@ -39,6 +40,7 @@ Email: iqiukp@outlook.com
 <p align="middle">
   <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle.png" width="420">
 </p>
+
 -------------------------------------------------------------------
 
 ## Demo for data reconstruction ('circle' data)
@@ -46,6 +48,7 @@ Email: iqiukp@outlook.com
 <p align="middle">
   <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle(re).png" width="420">
 </p>
+
 -------------------------------------------------------------------
 
 ## Demo for fault detection (TE process data)
@@ -53,6 +56,7 @@ Email: iqiukp@outlook.com
 <p align="middle">
   <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd.png" width="420">
 </p>
+
 -------------------------------------------------------------------
 
 ## Demo for fault diagnosis (TE process data)
@@ -60,4 +64,4 @@ Email: iqiukp@outlook.com
 <p align="middle">
   <img src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/TE_fd_fd.png" width="420">
 </p>
--------------------------------------------------------------------
+
