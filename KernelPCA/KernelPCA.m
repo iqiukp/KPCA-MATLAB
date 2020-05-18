@@ -162,13 +162,26 @@ classdef KernelPCA < handle
         function [V_s, lambda] = computeEigenvalue(obj, K_c)
             % compute the eigenvalues and eigenvectors
             rng('default')
-            [V, D] = eigs(K_c/obj.model.n_samples, obj.model.dim);
+            try
+                [V, D] = eigs(K_c/obj.model.n_samples, obj.model.dim);
+                lambda = diag(D);
+            catch
+                [V, D] = eig(K_c/obj.model.n_samples) ;
+                lambda_ = diag(D);
+                [~, index_] = sort(lambda_, 'descend');
+                V = V(:, index_);
+                D = D(:, index_);
+                V = V(:, 1:obj.model.dim);
+                D = D(1:obj.model.dim, 1:obj.model.dim);
+                lambda = diag(D);
+            end
+            
             % ill-conditioned matrix
             if ~(isreal(V)) || ~(isreal(D))
                 V = real(V);
                 D = real(D);
             end
-            lambda = diag(D);
+
             if strcmp(obj.parameter.dim, 'None') || strcmp(obj.parameter.application, 'fd')
                 indices = lambda > obj.parameter.tol;
                 lambda = lambda(indices);
