@@ -164,9 +164,19 @@ classdef KernelPCA < handle
             rng('default')
             try
                 [V, D] = eigs(K_c/obj.model.n_samples, obj.model.dim);
+                % ill-conditioned matrix
+                if ~(isreal(V)) || ~(isreal(D))
+                    V = real(V);
+                    D = real(D);
+                end
                 lambda = diag(D);
             catch
                 [V, D] = eig(K_c/obj.model.n_samples) ;
+                % ill-conditioned matrix
+                if ~(isreal(V)) || ~(isreal(D))
+                    V = real(V);
+                    D = real(D);
+                end
                 lambda_ = diag(D);
                 [~, index_] = sort(lambda_, 'descend');
                 V = V(:, index_);
@@ -176,11 +186,6 @@ classdef KernelPCA < handle
                 lambda = diag(D);
             end
             
-            % ill-conditioned matrix
-            if ~(isreal(V)) || ~(isreal(D))
-                V = real(V);
-                D = real(D);
-            end
 
             if strcmp(obj.parameter.dim, 'None') || strcmp(obj.parameter.application, 'fd')
                 indices = lambda > obj.parameter.tol;
