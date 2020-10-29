@@ -18,7 +18,7 @@ parameter = struct('application', 'dr', 'kernel', kernel);
 % build a KPCA object
 kpca = KernelPCA(parameter);
 % train KPCA model using given data
-X_map = kpca.train(data);
+X_map = kpca.train(X);
 % reconstruct the mapping data
 X_re = kpca.reconstruct;
 % Visualize the reconstruction
