@@ -27,7 +27,7 @@ classdef KernelPCA < handle
         function varargout = train(obj, X)
             % train the model from data X
             
-            tic
+            tStart = tic;
             % compute the kernel matrix
             n_samples = size(X, 1);
             obj.model.n_samples = n_samples;
@@ -75,14 +75,14 @@ classdef KernelPCA < handle
                 % false alarm rate
                 obj.model.speFAR = obj.model.n_speAlarm/obj.model.n_samples;
                 obj.model.t2FAR = obj.model.n_t2Alarm/obj.model.n_samples;
-                obj.model.timeCost = toc;
+                obj.model.timeCost = toc(tStart);
                 obj.prediction = [];
                 % display
                 if strcmp(obj.parameter.display, 'on')
                     KernelPCAFunction.displayTrain(obj)
                 end
             else
-                obj.model.timeCost = toc;
+                obj.model.timeCost = toc(tStart);
                 if strcmp(obj.parameter.display, 'on')
                     KernelPCAFunction.displayTrain(obj)
                 end
@@ -120,7 +120,7 @@ classdef KernelPCA < handle
         
         function varargout = test(obj, Y)
             % test the model from the given data Y
-            tic
+            tStart = tic;
             Kt = obj.parameter.kernel.getKernelMatrix(Y, obj.model.X);
             % centralize the kernel matrix
             unit = ones(size(Y, 1), obj.model.n_samples)/obj.model.n_samples;
@@ -143,12 +143,12 @@ classdef KernelPCA < handle
                 obj.prediction.speAlarmIndex = find(obj.prediction.spe>obj.model.speLimit);
                 obj.prediction.n_speAlarm = length(obj.prediction.speAlarmIndex);
                 obj.prediction.n_t2Alarm = length(obj.prediction.t2AlarmIndex);
-                obj.prediction.timeCost = toc;
+                obj.prediction.timeCost = toc(tStart);
                 if strcmp(obj.parameter.display, 'on')
                     KernelPCAFunction.displayTest(obj)
                 end
             else
-                obj.prediction.timeCost = toc;
+                obj.prediction.timeCost = toc(tStart);
                 if strcmp(obj.parameter.display, 'on')
                     KernelPCAFunction.displayTest(obj)
                 end
@@ -226,7 +226,7 @@ classdef KernelPCA < handle
         
         function diagnose(obj, varargin)
             % falut diagnosis
-            tic
+            tStart = tic;
             if ~strcmp(obj.parameter.kernel.type, 'gauss')
                 error('Only fault diagnosis of Gaussian kernel is supported.')
             end
@@ -283,7 +283,7 @@ classdef KernelPCA < handle
             obj.prediction.end_time = end_time;
             obj.prediction.Y = Y_;
             fprintf('Fault diagnosis finished\n')
-            fprintf('time cost %.4f s\n', toc)
+            fprintf('time cost %.4f s\n', toc(tStart))
             fprintf('\n')
         end
         
