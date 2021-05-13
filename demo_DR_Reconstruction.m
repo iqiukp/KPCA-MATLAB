@@ -1,13 +1,13 @@
 %{
-    Demonstration of dimensionality reduction using KPCA.
+    Demonstration of reconstruction using KPCA.
 %}
 clc
 clear all
 close all
 addpath(genpath(pwd))
 
-load('.\data\helix.mat', 'data')
-kernel = Kernel('type', 'gaussian', 'gamma', 2);
+load('.\data\circle.mat', 'data')
+kernel = Kernel('type', 'gaussian', 'gamma', 0.2);
 parameter = struct('numComponents', 2, ...
                    'kernelFunc', kernel);
 % build a KPCA object
@@ -21,5 +21,4 @@ mappingData = kpca.score;
 % Visualization
 kplot = KernelPCAVisualization();
 kplot.cumContribution(kpca)
-kplot.score(kpca)
-
+kplot.reconstruction(kpca)

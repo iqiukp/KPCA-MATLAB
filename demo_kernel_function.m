@@ -1,44 +1,26 @@
 %{
-    Examples for kernel function
-
-    kernel = Kernel('type', 'gauss', 'width', 2);
-    kernel = Kernel('type', 'exp', 'width', 2);
-    kernel = Kernel('type', 'linear', 'offset', 0);
-    kernel = Kernel('type', 'lapl', 'width', 2);
-    kernel = Kernel('type', 'sigm', 'gamma', 0.1, 'offset', 0);
-    kernel = Kernel('type', 'poly', 'degree', 2, 'offset', 0);
-
+    Demonstration of computing the kernel function matrix.
 %}
-
 
 clc
 clear all
+close all
 addpath(genpath(pwd))
-x = rand(30, 5);
-y = rand(30, 5);
 
-kernelmatrix = cell(6, 1);
-% compute kernel matrix using gaussian kernel function
-kernel = Kernel('type', 'gauss', 'width', 2);
-kernelmatrix{1, 1} = kernel.getKernelMatrix(x, y);
+% data
+X = rand(33, 2);
+Y = rand(23, 2);
 
-% compute kernel matrix using exponential kernel function
-kernel = Kernel('type', 'exp', 'width', 2);
-kernelmatrix{2, 1} = kernel.getKernelMatrix(x, y);
+% kernel setting
+kernel1 = Kernel('type', 'gaussian', 'gamma', 0.01);
+kernel2 = Kernel('type', 'polynomial', 'degree', 3);
+kernel3 = Kernel('type', 'linear');
+kernel4 = Kernel('type', 'sigmoid', 'gamma', 0.01);
+kernel5 = Kernel('type', 'laplacian', 'gamma', 0.1);
 
-% compute kernel matrix using linear kernel function
-kernel = Kernel('type', 'linear', 'offset', 0);
-kernelmatrix{3, 1} = kernel.getKernelMatrix(x, y);
-
-% compute kernel matrix using laplacian kernel function
-kernel = Kernel('type', 'lapl', 'width', 2);
-kernelmatrix{4, 1} = kernel.getKernelMatrix(x, y);
-
-% compute kernel matrix using sigmoid kernel function
-kernel = Kernel('type', 'sigm', 'gamma', 0.01, 'offset', 0);
-kernelmatrix{5, 1} = kernel.getKernelMatrix(x, y);
-
-% compute kernel matrix using polynomial kernel function
-kernel = Kernel('type', 'poly', 'degree', 2, 'offset', 0);
-kernelmatrix{6, 1} = kernel.getKernelMatrix(x, y);
-
+% compute the kernel function matrix
+matrix{1} = kernel1.computeMatrix(X, Y);
+matrix{2} = kernel2.computeMatrix(X, Y);
+matrix{3} = kernel3.computeMatrix(X, Y);
+matrix{4} = kernel4.computeMatrix(X, Y);
+matrix{5} = kernel5.computeMatrix(X, Y);
