@@ -15,8 +15,8 @@ kpca = KernelPCA(parameter);
 % train KPCA model
 kpca.train(data);
 
-%　mapping data
-mappingData = kpca.score;
+%　reconstructed data
+reconstructedData = kpca.newData;
 
 % Visualization
 kplot = KernelPCAVisualization();
