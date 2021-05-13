@@ -144,12 +144,12 @@ kpca = KernelPCA(parameter);
 % train KPCA model
 kpca.train(data);
 
-%　mapping data
-mappingData = kpca.score;
+%　reconstructed data
+reconstructedData = kpca.newData;
 
 % Visualization
 kplot = KernelPCAVisualization();
-kplot.reconstruction(kpca)l);
+kplot.reconstruction(kpca)
 ```
 
 <p align="center">
