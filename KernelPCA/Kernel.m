@@ -65,12 +65,23 @@ classdef Kernel < handle
             switch obj.type
                 case 'linear' % linear kernel function
                     K = x*y';
+                    
                 case 'gaussian' % gaussian kernel function
-                    K = exp(-obj.gamma*pdist2(x, y, 'squaredeuclidean'));
+                    try
+                        K = exp(-obj.gamma*pdist2(x, y, 'squaredeuclidean'));
+                    catch
+                        sx = sum(x.^2, 2);
+                        sy = sum(y.^2, 2);
+                        xy = 2*x*y';
+                        K = exp((bsxfun(@minus, bsxfun(@minus, xy, sx), sy'))*obj.gamma);
+                    end
+                    
                 case 'polynomial' % polynomial kernel function
                     K = (obj.gamma*x*y'+obj.offset).^double(obj.degree);
+                    
                 case 'sigmoid' % sigmoid kernel function
                     K = tanh(obj.gamma*x*y'+obj.offset);
+                    
                 case 'laplacian' % laplacian kernel function
                     K = exp(-obj.gamma*pdist2(x, y, 'cityblock'));
             end

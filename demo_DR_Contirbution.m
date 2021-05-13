@@ -33,7 +33,7 @@ kplot.cumContribution(kpca)
 %% case 2
 %{
     The number of components is determined by the given number.
-    For example, when given number is set to 24, the parameter should
+    For example, when the given number is set to 24, the parameter should
     be set as:
 
     parameter = struct('numComponents', 24, ...

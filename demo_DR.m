@@ -20,6 +20,6 @@ mappingData = kpca.score;
 
 % Visualization
 kplot = KernelPCAVisualization();
-kplot.cumContribution(kpca)
+% visulize the mapping data
 kplot.score(kpca)
 
