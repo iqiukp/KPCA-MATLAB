@@ -181,7 +181,7 @@ classdef KernelPCA < handle
                 coefficient = V./sqrt(obj.numSamples*lambda_)';
             catch
                 coefficient = zeros(obj.numSamples, obj.numSamples);
-                for i = 1:obj.obj.numSamples
+                for i = 1:obj.numSamples
                     coefficient(:, i) = V(:, i)/sqrt(obj.numSamples*lambda_(i, 1));
                 end
             end
