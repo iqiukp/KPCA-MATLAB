@@ -115,10 +115,10 @@ classdef KernelPCA < handle
             results.T2AlarmIndex = find(results.T2 > obj.T2Limit);
             results.SPEAlarmIndex = find(results.SPE > obj.SPELimit);
             if strcmp(results.evaluation, 'on')
-                label_ = testLabel;
+                label_ = ones(size(results.data, 1), 1);
                 label_(results.SPEAlarmIndex) = -1;
                 results.accuracySPE = sum(label_ == testLabel)/results.numSamples;
-                label_ = testLabel;
+                label_ = ones(size(results.data, 1), 1);
                 label_(results.T2AlarmIndex) = -1;
                 results.accuracyT2 = sum(label_ == testLabel)/results.numSamples;
             end
