@@ -1,10 +1,10 @@
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/helix.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/helix.png">
 </p>
 
 <h3 align="center">Kernel Principal Component Analysis (KPCA)</h3>
 
-<p align="center">MATLAB Code for dimensionality reduction, fault detection, and fault diagnosis using KPCA</p>
+<p align="center">MATLAB code for dimensionality reduction, fault detection, and fault diagnosis using KPCA</p>
 <p align="center">Version 2.2, 14-MAY-2021</p>
 <p align="center">Email: iqiukp@outlook.com</p>
 
@@ -119,12 +119,12 @@ accuracy of SPE         = 100.0000%
 ```
 
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/helix.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/helix.png">
 </p>
 
 Another application using banana-shaped data:
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/banana.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/banana.png">
 </p>
 
 
@@ -153,7 +153,7 @@ kplot.reconstruction(kpca)
 ```
 
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/circle.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/circle.png">
 </p>
 
 
@@ -194,7 +194,7 @@ kplot = KernelPCAVisualization();
 kplot.cumContribution(kpca)
 ```
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/cumContirb.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/cumContirb.png">
 </p>
 
 As shown in the image, when the number of components is 21, the cumulative contribution rate is 75.2656%，which exceeds the given explained level (0.75）.
@@ -231,7 +231,7 @@ kplot = KernelPCAVisualization();
 kplot.cumContribution(kpca)
 ```
 <p align="center">
-  <img width="60%" height="60%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/components.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/components.png">
 </p>
 
 As shown in the image, when the number of components is 24, the cumulative contribution rate is 80.2539%.
@@ -280,7 +280,7 @@ accuracy of SPE         = 96.6000%
 ```
 
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/FD_train.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/FD_train.png">
 </p>
 
 The test results are
@@ -293,7 +293,7 @@ number of SPE alarm     = 851
 ```
 
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/FD_test.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/FD_test.png">
 </p>
 
 ### 06. Fault diagnosis
@@ -344,6 +344,6 @@ fault variables (SPE)   = 1  44  18
 ```
 
 <p align="center">
-  <img width="70%" height="70%" src="https://github.com/iqiukp/Kernel-Principal-Component-Analysis-KPCA/blob/master/imgs/diagnosis.png">
+  <img src="http://github-files-qiu.oss-cn-beijing.aliyuncs.com/KPCA-MATLAB/diagnosis.png">
 </p>
 
