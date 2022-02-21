@@ -39,7 +39,7 @@
 ### 01. Kernel funcions
 
 A class named ***Kernel*** is defined to compute kernel function matrix.
-```
+```MATLAB
 %{
         type   -
         
@@ -62,7 +62,7 @@ kernel = Kernel('type', 'laplacian', 'gamma', value);
 ```
 For example, compute the kernel matrix between **X** and **Y**
 
-```
+```MATLAB
 X = rand(5, 2);
 Y = rand(3, 2);
 kernel = Kernel('type', 'gaussian', 'gamma', 2);
@@ -80,7 +80,7 @@ kernelMatrix =
 
 ### 02. Simple KPCA model for dimensionality reduction
 
-```
+```MATLAB
 clc
 clear all
 close all
@@ -105,7 +105,7 @@ kplot.score(kpca)
 ```
 
 The training results (dimensionality reduction):
-```
+```MATLAB
 *** KPCA model training finished ***
 running time            = 0.2798 seconds
 kernel function         = gaussian 
@@ -129,7 +129,7 @@ Another application using banana-shaped data:
 
 
 ### 03. Simple KPCA model for reconstruction
-```
+```MATLAB
 clc
 clear all
 close all
@@ -166,14 +166,14 @@ The Component number can be determined based on given explained level or given n
 The number of components is determined by the given explained level. The given explained level should be 0 < explained level < 1.
 For example, when explained level is set to 0.75, the parameter should
 be set as:
-```
+```MATLAB
 parameter = struct('numComponents', 0.75, ...
                    'kernelFunc', kernel);
 ```
 
 The code is
 
-```
+```MATLAB
 clc
 clear all
 close all
@@ -203,14 +203,14 @@ As shown in the image, when the number of components is 21, the cumulative contr
 
 The number of components is determined by the given number. For example, when the given number is set to 24, the parameter should
 be set as:
-```
+```MATLAB
 parameter = struct('numComponents', 24, ...
                    'kernelFunc', kernel);
 ```
 
 The code is
 
-```
+```MATLAB
 clc
 clear all
 close all
@@ -240,7 +240,7 @@ As shown in the image, when the number of components is 24, the cumulative contr
 
 Demonstration of fault detection using KPCA (TE process data)
 
-```
+```MATLAB
 clc
 clear all
 close all
@@ -266,7 +266,7 @@ kplot.testResults(kpca, results)
 ```
 
 The training results are
-```
+```MATLAB
 *** KPCA model training finished ***
 running time            = 0.0986 seconds
 kernel function         = gaussian 
@@ -284,7 +284,7 @@ accuracy of SPE         = 96.6000%
 </p>
 
 The test results are
-```
+```MATLAB
 *** KPCA model test finished ***
 running time            = 0.0312 seconds
 number of test data     = 960 
@@ -304,7 +304,7 @@ number of SPE alarm     = 851
 - If you want to calculate the average CPS of a period of time, starting time and ending time should be set respectively. 'diagnosis', [300, 500]
 - The fault diagnosis module is only supported for gaussian kernel function and it may still take a long time when the number of the training data is large.
 
-```
+```MATLAB
 clc
 clear all
 close all
@@ -332,7 +332,7 @@ kplot.testResults(kpca, results)
 kplot.diagnosis(results)
 ```
 Diagnosis results:
-```
+```MATLAB
 *** Fault diagnosis ***
 Fault diagnosis start...
 Fault diagnosis finished.
